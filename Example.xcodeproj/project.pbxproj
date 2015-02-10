@@ -13,6 +13,7 @@
 		A1AA27D81A8A6E5C006664B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1AA27D71A8A6E5C006664B8 /* Images.xcassets */; };
 		A1AA27DB1A8A6E5C006664B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1AA27D91A8A6E5C006664B8 /* LaunchScreen.xib */; };
 		A1AA27F11A8A6EAF006664B8 /* RefreshSlide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AA27F01A8A6EAF006664B8 /* RefreshSlide.framework */; };
+		A1AA27F71A8A804A006664B8 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A1AA27F61A8A804A006664B8 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		A1AA27D71A8A6E5C006664B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A1AA27DA1A8A6E5C006664B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A1AA27F01A8A6EAF006664B8 /* RefreshSlide.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RefreshSlide.framework; path = "build/Debug-iphoneos/RefreshSlide.framework"; sourceTree = "<group>"; };
+		A1AA27F61A8A804A006664B8 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A1AA27D41A8A6E5C006664B8 /* Main.storyboard */,
 				A1AA27D71A8A6E5C006664B8 /* Images.xcassets */,
 				A1AA27D91A8A6E5C006664B8 /* LaunchScreen.xib */,
+				A1AA27F61A8A804A006664B8 /* icon.png */,
 				A1AA27CE1A8A6E5C006664B8 /* Supporting Files */,
 			);
 			path = Example;
@@ -133,6 +136,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1AA27F71A8A804A006664B8 /* icon.png in Resources */,
 				A1AA27D61A8A6E5C006664B8 /* Main.storyboard in Resources */,
 				A1AA27DB1A8A6E5C006664B8 /* LaunchScreen.xib in Resources */,
 				A1AA27D81A8A6E5C006664B8 /* Images.xcassets in Resources */,
