@@ -9,6 +9,37 @@
 import UIKit
 import RefreshSlide
 
+class TableViewCell: UITableViewCell {
+
+    var labels = [UILabel]()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        labels = [UILabel(), UILabel(), UILabel()]
+        for l: UILabel in labels {
+            l.backgroundColor = UIColor.lightGrayColor()
+            self.addSubview(l)
+        }
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        var x = Double(CGRectGetMaxX(self.imageView!.frame) + 15)
+        var y = 5.0
+        labels[0].frame = CGRect(x: x, y: y, width: 40.0, height: 5.0)
+
+        y = Double(CGRectGetMaxY(labels[0].frame) + 5)
+        labels[1].frame = CGRect(x: x, y: y, width: 200.0, height: 10.0)
+
+        y = Double(CGRectGetMaxY(labels[1].frame) + 5)
+        labels[2].frame = CGRect(x: x, y: y, width: 160.0, height: 8.0)
+    }
+}
+
 class ViewController: RefreshSlide.TableViewController {
 
     var refreshed = false
@@ -26,7 +57,8 @@ class ViewController: RefreshSlide.TableViewController {
             UIColor(hex: 0xEEF5D3),
             UIColor(hex: 0xF9DFD5)
         ]
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
+        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +89,7 @@ class ViewController: RefreshSlide.TableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as TableViewCell
 
         cell.imageView?.image = UIImage(named: "icon")
 
@@ -67,8 +99,6 @@ class ViewController: RefreshSlide.TableViewController {
         }
         let i = index%colors.count
         cell.imageView?.backgroundColor = colors[i]
-        cell.textLabel?.textColor = UIColor.grayColor()
-        cell.textLabel?.text = "\(indexPath.row): --------------------------"
 
         return cell
     }
