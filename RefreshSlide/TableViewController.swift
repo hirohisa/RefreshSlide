@@ -41,15 +41,23 @@ public class TableViewController: UITableViewController {
     }
 
     func _reloadData(state: State) {
-        var x = CGFloat(0.0)
-        var alpha = CGFloat(0.0)
+        let x: CGFloat = {
+            switch state {
+            case .Appearance:
+                return -CGRectGetWidth(self.tableView.frame)
+            default:
+                return 0.0
+            }
+            }()
 
-        switch state {
-        case .Appearance:
-            x = -CGRectGetWidth(self.tableView.frame)
-        case .Disappearance:
-            alpha = 1
-        }
+        let alpha: CGFloat = {
+            switch state {
+            case .Disappearance:
+                return 1
+            default:
+                return 0
+            }
+            }()
 
         self.tableView.reloadData()
         let tableViewCells = self.tableView.visibleCells() as [UITableViewCell]
@@ -82,14 +90,24 @@ public class TableViewController: UITableViewController {
     }
 
     func _slideCell(tableViewCell: UITableViewCell, state: State) {
-        var x = CGFloat(0.0)
-        var alpha = CGFloat(0.0)
-        switch state {
-        case .Appearance:
-            alpha = 1
-        case .Disappearance:
-            x = CGRectGetMaxX(self.tableView.frame)
-        }
+
+        let x: CGFloat = {
+            switch state {
+            case .Disappearance:
+                return CGRectGetMaxX(self.tableView.frame)
+            default:
+                return 0.0
+            }
+            }()
+
+        let alpha: CGFloat = {
+            switch state {
+            case .Appearance:
+                return 1
+            default:
+                return 0
+            }
+            }()
 
         let y = CGRectGetMinY(tableViewCell.frame)
         let width = CGRectGetWidth(tableViewCell.frame)
