@@ -2,8 +2,8 @@
 //  TableViewController.swift
 //  RefreshSlide
 //
-//  Created by Hirohisa Kawasaki on 2015/02/11.
-//  Copyright (c) 2015年 Hirohisa Kawasaki. All rights reserved.
+//  Created by Hirohisa Kawasaki on 2/11/15.
+//  Copyright (c) 2015 Hirohisa Kawasaki. All rights reserved.
 //
 
 import UIKit
