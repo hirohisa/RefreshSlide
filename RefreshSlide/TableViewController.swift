@@ -17,9 +17,9 @@ public class TableViewController: UITableViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
-        self.tableView.addSubview(self.refreshControl!)
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl!)
     }
 
     override public func didReceiveMemoryWarning() {
@@ -27,7 +27,7 @@ public class TableViewController: UITableViewController {
     }
 
     public func refresh() {
-        self.slideCells(.Disappearance)
+        slideCells(.Disappearance)
         let delay = 2.0 * Double(NSEC_PER_SEC)
         let time  = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue(), {
@@ -36,8 +36,8 @@ public class TableViewController: UITableViewController {
     }
 
     public func endRefresh() {
-        self.refreshControl?.endRefreshing()
-        self.slideCells(.Appearance)
+        refreshControl!.endRefreshing()
+        slideCells(.Appearance)
     }
 
     func _reloadData(state: State) {
@@ -59,8 +59,8 @@ public class TableViewController: UITableViewController {
             }
             }()
 
-        self.tableView.reloadData()
-        let tableViewCells = self.tableView.visibleCells() as [UITableViewCell]
+        tableView.reloadData()
+        let tableViewCells = tableView.visibleCells() as [UITableViewCell]
         for tableViewCell in tableViewCells {
             let y = CGRectGetMinY(tableViewCell.frame)
             let width = CGRectGetWidth(tableViewCell.frame)
@@ -72,12 +72,12 @@ public class TableViewController: UITableViewController {
     }
 
     public func slideCells(state: State) {
-        self._slideCells(state)
+        _slideCells(state)
     }
 
     func _slideCells(state: State) {
-        self._reloadData(state)
-        let tableViewCells = self.tableView.visibleCells() as [UITableViewCell]
+        _reloadData(state)
+        let tableViewCells = tableView.visibleCells() as [UITableViewCell]
         var timeinterval = 0.01
         for tableViewCell in tableViewCells {
             let delay = timeinterval * Double(NSEC_PER_SEC)
